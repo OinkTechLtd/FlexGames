@@ -1,0 +1,8 @@
+{
+  "name": "goidax-extension",
+  "version": "1.0.0",
+  "description": "GoidaX - браузерное расширение для разблокировки",
+  "scripts": {
+    "update-dns": "node update-dns.js"
+  }
+}
