@@ -4,22 +4,98 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GoidaX</title>
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+    body {
+      margin: 0;
+      padding: 0;
+      width: 380px;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: white;
+      font-family: 'Inter', sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+    .container {
+      padding: 20px;
+    }
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      background: linear-gradient(to right, #00ff88, #00ccff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .big-button {
+      width: 220px;
+      height: 220px;
+      margin: 20px auto;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #00ff88, #00ccff);
+      color: #000;
+      font-size: 22px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 0 40px rgba(0, 255, 136, 0.6);
+      transition: all 0.3s;
+      border: none;
+    }
+    .big-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 60px rgba(0, 255, 136, 0.8);
+    }
+    .big-button:active {
+      transform: scale(0.95);
+    }
+    .timer {
+      font-size: 18px;
+      margin: 15px 0;
+      font-weight: 600;
+    }
+    button {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: white;
+      padding: 12px 24px;
+      margin: 8px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    button:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-2px);
+    }
+    .status {
+      margin-top: 15px;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <h1>GoidaX</h1>
-    <p class="status" id="status">Готов к обходу</p>
+    <div class="logo">GOIDAX</div>
+    <h2>Разблокировка всего</h2>
     
-    <button id="activateBtn" class="big-btn">АКТИВИРОВАТЬ ОБХОД<br><span class="timer" id="timer">60:00</span></button>
-    
-    <div class="options">
-      <button id="customDnsBtn">Собрать свой DNS</button>
-      <button id="openSitesBtn">Открыть заблокированные сайты</button>
+    <div id="main-screen">
+      <div class="big-button" id="activateBtn">
+        АКТИВИРОВАТЬ<br>ОБХОД
+      </div>
+      <div class="timer" id="timer">00:00</div>
     </div>
+
+    <button id="customDnsBtn">Собрать свой DNS</button>
+    <button id="openSitesBtn">Открыть заблокированные сайты</button>
     
-    <div id="log" class="log"></div>
+    <div class="status" id="status">Готов к работе</div>
   </div>
+
   <script src="popup.js"></script>
 </body>
 </html>
