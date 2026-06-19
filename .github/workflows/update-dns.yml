@@ -1,0 +1,26 @@
+name: Update DNS List
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Every 24 hours
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update DNS servers
+        run: |
+          echo "Fetching latest DNS..." > dns-list.json
+          # Add logic to fetch from sources like dns.malw.link or public lists
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add dns-list.json
+          git commit -m "Update DNS list" || echo "No changes"
+          git push
+      - name: Notify
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // Optional notification
